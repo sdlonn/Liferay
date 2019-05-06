@@ -6,7 +6,7 @@ AUI.add(
 				ATTRS: {
 					maxchars: {
 						value: ''
-					}, 
+					},
 					type: {
 						value: 'CustomText-form-field'
 					}
@@ -18,12 +18,14 @@ AUI.add(
 
 				prototype: {
 					
+				
 					getTemplateContext: function() {
 						var instance = this;
 
 						return A.merge(
 								CustomTextField.superclass.getTemplateContext.apply(instance, arguments), {
 									maxchars: instance.get('maxchars')	
+									
 								}
 						);
 						
