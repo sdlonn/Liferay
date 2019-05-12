@@ -7,6 +7,12 @@ AUI.add(
 					maxchars: {
 						value: ''
 					},
+					hidden: {
+						value: 'false'
+					},
+					prev: {
+						value: 'false'
+					},
 					type: {
 						value: 'CustomText-form-field'
 					}
@@ -24,8 +30,8 @@ AUI.add(
 
 						return A.merge(
 								CustomTextField.superclass.getTemplateContext.apply(instance, arguments), {
-									maxchars: instance.get('maxchars')	
-									
+									maxchars: instance.get('maxchars'),
+									hidden: instance.get('hidden')
 								}
 						);
 						

@@ -23,11 +23,21 @@
 	{@param? showLabel: bool}
 	{@param? tip: string}
 	{@param? maxchars: ?}
+	{@param? hidden: ?}
+	{@param? prev: ?}
 
 	{let $displayValue: $value ? $value : $predefinedValue ? $predefinedValue : '' /}
-
-	<div class="form-group {$visible ? '' : 'hide'} CustomText-form-field"
+	
+	
+	
+	
+	<div class="form-group {$visible ? '' : 'hide'} CustomText-form-field "
 		data-fieldname="{$name}">
+		
+	<div class="{$hidden and not $prev ? 'hide' : ''}">
+		<label>Preview test</label>
+	</div>
+	
 		{if $showLabel or $required}
 			<label for="{$name}">
 				{if $showLabel}
@@ -60,8 +70,6 @@
 					name="{$name}"
 					type="text"
 					value="{$displayValue}">
-		
-				
 			</div>
 		</div>
 	</div>

@@ -25,6 +25,8 @@ public class CustomTextDDMFormFieldTemplateContextContributor implements DDMForm
 			DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
 		Map<String, Object> params = new HashMap<>();	
 		params.put("maxchars", (String) ddmFormField.getProperty("maxchars"));	
+		params.put("hidden", (boolean) ddmFormField.getProperty("hidden"));
+		//params.put("prev", (boolean) ddmFormField.getProperty("prev"));
 		return params;
 	}
 	

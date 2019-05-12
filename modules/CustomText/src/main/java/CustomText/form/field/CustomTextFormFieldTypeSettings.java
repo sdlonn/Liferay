@@ -7,6 +7,8 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
+import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+
 
 @DDMForm
 @DDMFormLayout(
@@ -20,7 +22,7 @@ import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeS
                         @DDMFormLayoutColumn(
                             size = 12,
                             value = {
-                                "label", "required", "tip", "maxchars"
+                                "label", "required", "tip", "maxchars", "predefinedValue" , "indexType", "hidden", "prev"
                             }
                         )
                     }
@@ -52,5 +54,31 @@ public interface CustomTextFormFieldTypeSettings extends DefaultDDMFormFieldType
 	
 	@DDMFormField(label = "%Maxchars")
 	public int maxchars();
+	
+	@DDMFormField(label = "%Hidden")
+	public boolean hidden();
+	
+	@DDMFormField(label = "%Prev", predefinedValue = "true",
+			visibilityExpression = "FALSE")
+	public boolean prev();
 
+	@DDMFormField(
+			label = "%indexable",
+			optionLabels = {
+				"%px", "%em"
+			},
+			optionValues = {"px", "em"},
+			predefinedValue = "keyword", type = "radio"
+		)
+		public String indexType();
+	
+	@DDMFormField(
+			label = "%predefined-value",
+			properties = {
+				"placeholder=%enter-a-default-value",
+				"tooltip=%enter-a-default-value-that-is-submitted-if-no-other-value-is-entered"
+			},
+			type = "text"
+		)
+		public LocalizedValue predefinedValue();
 }
