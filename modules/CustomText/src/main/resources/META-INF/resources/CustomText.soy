@@ -27,7 +27,7 @@
 	{@param? prev: ?}
 
 	{let $displayValue: $value ? $value : $predefinedValue ? $predefinedValue : '' /}
-	
+
 	
 	
 	
@@ -35,7 +35,7 @@
 		data-fieldname="{$name}">
 		
 	<div class="{$hidden and not $prev ? 'hide' : ''}">
-		<label>Preview test</label>
+		<label id="asdf">Preview test 123 {$maxchars}</label>
 	</div>
 	
 		{if $showLabel or $required}
@@ -71,6 +71,7 @@
 					type="text"
 					value="{$displayValue}">
 			</div>
+			
 		</div>
 	</div>
 {/template}
