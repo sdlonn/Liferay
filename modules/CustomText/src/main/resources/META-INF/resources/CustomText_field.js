@@ -40,6 +40,7 @@ AUI.add(
 				}
 			}
 		);
+
 		Liferay.namespace('DDM.Field').CustomText = CustomTextField;
 	},
 	'',
@@ -47,15 +48,13 @@ AUI.add(
 		requires: ['liferay-ddm-form-renderer-field']
 	}
 );
-
-AUI().use("aui-base",
-        function(A){
-            A.one('#asdf').on(
-                'click',
-                function(event) {
-                    alert('Thank you for clicking.')
-                    
-                }
-            );
-        }
-    );
+AUI().use('event', 'CustomText-form-field', function(A) {
+	var instance = this;
+	var d = A.one('#xtr');
+	var c = A.one('#help');
+	console.log('logg: ');
+	d.on('click', function(event){
+		c.toggleView();
+		   alert('hello');
+		});
+});
